@@ -2,27 +2,39 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Login {
-
+public class Login extends TestBase {
     WebDriver wd;
+
+    @BeforeMethod
+    public void preCondition(){
+
+        if (app.getUser().isLogged()) {
+            app.getUser().logOut();
+        }
+    }
+
 
     @Test
     public void login() {
-       click(By.cssSelector("[href='/login']"));
+        // WebElement el1= wd.findElement(By.cssSelector("[href='/login']"));
+        // el1.click();
+        //wd.findElement(By.cssSelector("[href='/login']")).click();
 
-       type(By.cssSelector("#user"), "test@gmail.com");
+        app.getUser().initLogin();
+        app.getUser().pause(2000);
+        app.getUser().fillINLoginForm("amaverik281@gmail.com", "^94NqXC,5fxvUQ=");
+        app.getUser().submitLogin();
+        app.getUser().pause(2000);
+
+        Assert.assertTrue(app.getUser().isLogged());
+
 
     }
 
-    public void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
-    }
 
-    public void click(By locator) {
-        wd.findElement(locator).click();
-    }
+
 }
