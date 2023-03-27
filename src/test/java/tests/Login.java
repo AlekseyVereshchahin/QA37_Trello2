@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -24,17 +25,15 @@ public class Login extends TestBase {
         // el1.click();
         //wd.findElement(By.cssSelector("[href='/login']")).click();
 
+
+        User user = new User().setEmail("amaverik281@gmail.com").setPassword("^94NqXC,5fxvUQ=");
         app.getUser().initLogin();
         app.getUser().pause(2000);
-        app.getUser().fillINLoginForm("amaverik281@gmail.com", "^94NqXC,5fxvUQ=");
+        app.getUser().fillINLoginForm(user);
         app.getUser().submitLogin();
         app.getUser().pause(2000);
 
         Assert.assertTrue(app.getUser().isLogged());
 
-
     }
-
-
-
 }
