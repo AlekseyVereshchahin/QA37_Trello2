@@ -11,6 +11,8 @@ public class ApplicationManager {
 
     UserHelper user;
 
+    BoardHelper board;
+
     public void init(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

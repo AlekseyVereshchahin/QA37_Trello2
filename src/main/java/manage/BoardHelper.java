@@ -34,7 +34,7 @@ public class BoardHelper extends HelperBase {
 //    }
 
     public boolean isCreated() {
-        return wd.findElements(By.cssSelector(".list-name-input")).size() > 0;
+        return wd.findElements(By.cssSelector(".list-name-input")).size()>0;
     }
 }
 
