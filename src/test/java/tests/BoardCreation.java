@@ -10,7 +10,7 @@ public class BoardCreation extends TestBase{
     public void preCondition(){
         app.getUser().initLogin();
         app.getUser().pause(2000);
-        app.getUser().fillINLoginForm("juliakliot.jk@gmail.com", "misha240613");
+        app.getUser().fillINLoginForm("amaverik281@gmail.com", "^94NqXC,5fxvUQ=");
         app.getUser().submitLogin();
         app.getUser().pause(2000);
     }
@@ -18,11 +18,12 @@ public class BoardCreation extends TestBase{
     @Test
     public void boardCreation1(){
         app.getBoard().initBoardCreationFromHeader();
-        app.getBoard().fillInBoardCreationForm("QA37");
+        app.getBoard().pause(6000);
+        app.getBoard().fillInBoardCreationForm("qa37");
         // app.scrollDownTheForm();
-        app.getBoard().pause(2000);
+        app.getBoard().pause(6000);
         app.getBoard().submitBoardCreation();
-        app.getBoard().pause(2000);
+        app.getBoard().pause(6000);
         app.getBoard().isCreated();
 
     }
