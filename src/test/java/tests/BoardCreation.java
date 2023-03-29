@@ -20,7 +20,7 @@ public class BoardCreation extends TestBase{
         app.getBoard().initBoardCreationFromHeader();
         app.getBoard().pause(6000);
         app.getBoard().fillInBoardCreationForm("qa37");
-        // app.scrollDownTheForm();
+      //   app.getBoard().scrollDownTheForm();
         app.getBoard().pause(6000);
         app.getBoard().submitBoardCreation();
         app.getBoard().pause(6000);
